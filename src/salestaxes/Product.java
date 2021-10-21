@@ -34,8 +34,7 @@ public class Product {
 
     public static BigDecimal roundBigDecimalToNearest5Cents(BigDecimal value, BigDecimal increment, RoundingMode roundingMode) {
         BigDecimal divided = value.divide(increment, 0, roundingMode);
-        BigDecimal result = divided.multiply(increment);
-        return result;
+        return divided.multiply(increment);
     }
 
     public BigDecimal calculateTotalPrice() {

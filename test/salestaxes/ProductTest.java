@@ -12,7 +12,7 @@ public class ProductTest {
     Product testProduct_tax15;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         testProduct_tax0 = new Product(1, "book", new BigDecimal("14.99"));
         testProduct_tax10 = new Product(1, "music CD", new BigDecimal("7.99"));
         testProduct_tax15 = new Product(1, "imported music CD", new BigDecimal("7.99"));
@@ -22,51 +22,51 @@ public class ProductTest {
     public void checkCreatedProductTaxes0() {
         Assert.assertEquals(1, testProduct_tax0.getQuantity());
         Assert.assertEquals("book", testProduct_tax0.getDescription());
-        Assert.assertTrue(new BigDecimal("14.99").compareTo(testProduct_tax0.getPrice()) == 0);
+        Assert.assertEquals(0, new BigDecimal("14.99").compareTo(testProduct_tax0.getPrice()));
         Assert.assertEquals(0, testProduct_tax0.getTax());
-        Assert.assertEquals(false, testProduct_tax0.isImported());
+        Assert.assertFalse(testProduct_tax0.isImported());
     }
 
     @Test
     public void checkCreatedProductTaxes10() {
         Assert.assertEquals(10, testProduct_tax10.getTax());
-        Assert.assertEquals(false, testProduct_tax10.isImported());
+        Assert.assertFalse(testProduct_tax10.isImported());
     }
 
     @Test
     public void checkCreatedProductTaxes15() {
         Assert.assertEquals(15, testProduct_tax15.getTax());
-        Assert.assertEquals(true, testProduct_tax15.isImported());
+        Assert.assertTrue(testProduct_tax15.isImported());
     }
 
     @Test
     public void cCalculateTaxesOnly0() {
-        Assert.assertTrue(new BigDecimal("0.00").compareTo(testProduct_tax0.calculateTaxesOnly()) == 0);
+        Assert.assertEquals(0, new BigDecimal("0.00").compareTo(testProduct_tax0.calculateTaxesOnly()));
     }
 
     @Test
     public void calculateTaxesOnly10() {
-        Assert.assertTrue(new BigDecimal("0.80").compareTo(testProduct_tax10.calculateTaxesOnly()) == 0);
+        Assert.assertEquals(0, new BigDecimal("0.80").compareTo(testProduct_tax10.calculateTaxesOnly()));
     }
 
     @Test
     public void calculateTaxesOnly15() {
-        Assert.assertTrue(new BigDecimal("1.20").compareTo(testProduct_tax15.calculateTaxesOnly()) == 0);
+        Assert.assertEquals(0, new BigDecimal("1.20").compareTo(testProduct_tax15.calculateTaxesOnly()));
     }
 
     @Test
     public void calculateTotalPriceTax0() {
-        Assert.assertTrue(new BigDecimal("14.99").compareTo(testProduct_tax0.calculateTotalPrice()) == 0);
+        Assert.assertEquals(0, new BigDecimal("14.99").compareTo(testProduct_tax0.calculateTotalPrice()));
     }
 
     @Test
     public void calculateTotalPriceTax10() {
-        Assert.assertTrue(new BigDecimal("8.79").compareTo(testProduct_tax10.calculateTotalPrice()) == 0);
+        Assert.assertEquals(0, new BigDecimal("8.79").compareTo(testProduct_tax10.calculateTotalPrice()));
     }
 
     @Test
     public void calculateTotalPriceTax15() {
-        Assert.assertTrue(new BigDecimal("9.19").compareTo(testProduct_tax15.calculateTotalPrice()) == 0);
+        Assert.assertEquals(0, new BigDecimal("9.19").compareTo(testProduct_tax15.calculateTotalPrice()));
     }
 
     @Test

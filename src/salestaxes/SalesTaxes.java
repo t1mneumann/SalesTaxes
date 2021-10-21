@@ -3,7 +3,7 @@ package salestaxes;
 import java.util.Scanner;
 
 public class SalesTaxes {
-    private static Bill bill = new Bill();
+    private static final Bill bill = new Bill();
 
     public static void main(String[] args) {
         System.out.println("Zur Anzeige der Rechnung, bitte eine Leerzeile eingeben.");

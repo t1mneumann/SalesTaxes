@@ -27,7 +27,7 @@ public class Bill {
         int idx_first = line.indexOf(' ');
 
         //Parse line to get the details of a product
-        int product_quantity = Integer.valueOf(line.substring(0, idx_first));
+        int product_quantity = Integer.parseInt(line.substring(0, idx_first));
         String product_details = (line.substring(idx_first+1, idx_last - 3)); // idx-3 cuts the 'at' in the string
         BigDecimal product_price = new BigDecimal(line.substring(idx_last + 1));
 
