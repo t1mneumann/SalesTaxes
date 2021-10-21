@@ -1,0 +1,15 @@
+Eine Eingabezeile beschreibt ein gekauftes Produkt (Product-Klasse) und gehört zu einem zu erstellenden Kassenzettel (Bill-Klasse).
+Jedes Produkt wird nur ein mal eingegeben, weshalb die Quantität, die Steuern und "Importiert ja/nein" beim Produkt mit aufgenommen wird.
+Eine Eingabe hat keine Fehler. 
+
+Eine Eingabe hat immer folgende Struktur:
+{quantity} {description} at {price}
+
+Eine Ausgabe hat immer folgende Struktur:
+{quantity} {[imported]? description}: {Price with Taxes}
+..
+Sales Taxes: {TotalTaxes}
+Total: {TotalCosts}
+
+Der Bill parst den eingegebenen String und erstellt daraus ein Produkt, welches er in seiner Produktliste speichert.
+
